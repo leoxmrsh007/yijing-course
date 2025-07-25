@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/divination/divination",
+    "pages/library/library",
+    "pages/learning/learning"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#667eea",
+    "navigationBarTitleText": "周易学习平台",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f8f9fa"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#722ed1",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-active.png"
+      },
+      {
+        "pagePath": "pages/divination/divination",
+        "text": "占卜",
+        "iconPath": "images/divination.png",
+        "selectedIconPath": "images/divination-active.png"
+      },
+      {
+        "pagePath": "pages/library/library",
+        "text": "卦象",
+        "iconPath": "images/library.png",
+        "selectedIconPath": "images/library-active.png"
+      },
+      {
+        "pagePath": "pages/learning/learning",
+        "text": "学习",
+        "iconPath": "images/learning.png",
+        "selectedIconPath": "images/learning-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

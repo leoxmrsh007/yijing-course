@@ -1,0 +1,250 @@
+{
+  "project": {
+    "name": "周易学习平台",
+    "description": "基于React的周易学习和占卜平台",
+    "version": "1.0.0",
+    "author": "周易学习平台团队",
+    "homepage": "https://yijing-course.vercel.app"
+  },
+  "build": {
+    "outputDir": "build",
+    "publicPath": "/",
+    "generateSourceMap": false,
+    "optimization": {
+      "splitChunks": true,
+      "minify": true,
+      "compress": true
+    }
+  },
+  "deployment": {
+    "vercel": {
+      "name": "yijing-course",
+      "framework": "create-react-app",
+      "buildCommand": "npm run build",
+      "outputDirectory": "build",
+      "installCommand": "npm install",
+      "devCommand": "npm start",
+      "env": {
+        "NODE_ENV": "production",
+        "GENERATE_SOURCEMAP": "false"
+      },
+      "regions": ["hkg1", "sin1"],
+      "functions": {
+        "maxDuration": 10
+      }
+    },
+    "netlify": {
+      "name": "yijing-course",
+      "buildCommand": "npm run build",
+      "publishDirectory": "build",
+      "functionsDirectory": "netlify/functions",
+      "env": {
+        "NODE_ENV": "production",
+        "GENERATE_SOURCEMAP": "false"
+      },
+      "redirects": [
+        {
+          "from": "/*",
+          "to": "/index.html",
+          "status": 200
+        }
+      ],
+      "headers": {
+        "/*": {
+          "Cache-Control": "public, max-age=31536000",
+          "X-Frame-Options": "DENY",
+          "X-Content-Type-Options": "nosniff"
+        }
+      }
+    },
+    "github": {
+      "repository": "username/yijing-course",
+      "branch": "gh-pages",
+      "buildCommand": "npm run build",
+      "publishDirectory": "build",
+      "cname": "yijing.example.com",
+      "env": {
+        "NODE_ENV": "production",
+        "PUBLIC_URL": "https://username.github.io/yijing-course"
+      }
+    },
+    "server": {
+      "nginx": {
+        "serverName": "yijing.example.com",
+        "documentRoot": "/var/www/yijing-course",
+        "sslCertificate": "/etc/ssl/certs/yijing.crt",
+        "sslCertificateKey": "/etc/ssl/private/yijing.key",
+        "gzip": true,
+        "caching": {
+          "static": "1y",
+          "html": "1h"
+        }
+      }
+    }
+  },
+  "wechat": {
+    "miniprogram": {
+      "appid": "your-wechat-appid",
+      "projectname": "周易学习平台",
+      "setting": {
+        "urlCheck": false,
+        "es6": true,
+        "enhance": true,
+        "postcss": true,
+        "preloadBackgroundData": false,
+        "minified": true,
+        "newFeature": true,
+        "coverView": true,
+        "nodeModules": false,
+        "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "scopeDataCheck": false,
+        "uglifyFileName": false,
+        "checkInvalidKey": true,
+        "checkSiteMap": true,
+        "uploadWithSourceMap": true,
+        "compileHotReLoad": false,
+        "lazyloadPlaceholderEnable": false,
+        "useMultiFrameRuntime": true,
+        "useApiHook": true,
+        "useApiHostProcess": true,
+        "babelSetting": {
+          "ignore": [],
+          "disablePlugins": [],
+          "outputPath": ""
+        },
+        "enableEngineNative": false,
+        "useIsolateContext": false,
+        "userConfirmedBundleSwitch": false,
+        "packNpmManually": false,
+        "packNpmRelationList": [],
+        "minifyWXSS": true,
+        "disableUseStrict": false,
+        "minifyWXML": true
+      },
+      "compileType": "miniprogram",
+      "libVersion": "2.19.4",
+      "appid": "touristappid",
+      "projectname": "周易学习平台",
+      "debugOptions": {
+        "hidedInDevtools": []
+      },
+      "scripts": {},
+      "staticServerOptions": {
+        "baseURL": "",
+        "servePath": ""
+      },
+      "isGameTourist": false,
+      "condition": {
+        "search": {
+          "list": []
+        },
+        "conversation": {
+          "list": []
+        },
+        "game": {
+          "list": []
+        },
+        "plugin": {
+          "list": []
+        },
+        "gamePlugin": {
+          "list": []
+        },
+        "miniprogram": {
+          "list": []
+        }
+      }
+    },
+    "taro": {
+      "framework": "react",
+      "compiler": "webpack5",
+      "cache": {
+        "enable": false
+      },
+      "mini": {
+        "postcss": {
+          "pxtransform": {
+            "enable": true,
+            "config": {}
+          },
+          "url": {
+            "enable": true,
+            "config": {
+              "limit": 1024
+            }
+          },
+          "cssModules": {
+            "enable": false,
+            "config": {
+              "namingPattern": "module",
+              "generateScopedName": "[name]__[local]___[hash:base64:5]"
+            }
+          }
+        }
+      },
+      "h5": {
+        "publicPath": "/",
+        "staticDirectory": "static",
+        "postcss": {
+          "autoprefixer": {
+            "enable": true,
+            "config": {}
+          },
+          "cssModules": {
+            "enable": false,
+            "config": {
+              "namingPattern": "module",
+              "generateScopedName": "[name]__[local]___[hash:base64:5]"
+            }
+          }
+        }
+      }
+    }
+  },
+  "environment": {
+    "development": {
+      "API_BASE_URL": "http://localhost:3001",
+      "DEBUG": true,
+      "GENERATE_SOURCEMAP": true
+    },
+    "production": {
+      "API_BASE_URL": "https://api.yijing.example.com",
+      "DEBUG": false,
+      "GENERATE_SOURCEMAP": false
+    }
+  },
+  "optimization": {
+    "bundleAnalyzer": {
+      "enabled": false,
+      "openAnalyzer": false
+    },
+    "compression": {
+      "gzip": true,
+      "brotli": true
+    },
+    "caching": {
+      "enabled": true,
+      "strategy": "content-hash"
+    },
+    "treeshaking": {
+      "enabled": true
+    }
+  },
+  "monitoring": {
+    "analytics": {
+      "google": {
+        "trackingId": "GA_TRACKING_ID"
+      },
+      "baidu": {
+        "trackingId": "BAIDU_TRACKING_ID"
+      }
+    },
+    "errorTracking": {
+      "sentry": {
+        "dsn": "SENTRY_DSN",
+        "environment": "production"
+      }
+    }
+  }
+}
