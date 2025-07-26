@@ -2,6 +2,7 @@
   "name": "yijing-course",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://leoxmrsh007.github.io/yijing-course",
   "dependencies": {
     "@ant-design/icons": "^5.0.0",
     "@testing-library/dom": "^10.4.0",
